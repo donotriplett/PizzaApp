@@ -1,0 +1,22 @@
+<div class="container">
+    <div *ngIf="user">
+        <h1>Sign In</h1>
+        <form [formGroup]="signIn" (ngSubmit)="login()">
+            Username or Email: <input formControlName="usernameOrEmail" type="text" required />
+            Password: <input formControlName="password" type="password" required />
+            <button [disabled]="!signIn.valid" type="submit">Submit</button>
+        </form>
+        <button (click)="toggle()">Register</button>
+    </div>
+    
+    <div *ngIf="!user">
+        <h1>Sign Up</h1>
+        <form [formGroup]="signUp" (ngSubmit)="createAccount()">
+            Username: <input formControlName="username" type="text" required />
+            Email: <input formControlName="email" type="text" required />
+            Password: <input formControlName="password" type="password" required />
+            <button [disabled]="!signUp.valid" type="submit">Submit</button>
+        </form>
+        <button (click)="toggle()">Already have an account?</button>
+    </div>
+</div>

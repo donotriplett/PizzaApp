@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Make your masterpiece known!</h1>
+    <form [formGroup]="pizzaCreate" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                    <mat-label>Crust</mat-label>
+                    <input matInput formControlName="crust" type="text" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Sauce</mat-label>
+                    <input matInput formControlName="sauce" type="text" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Cheese</mat-label>
+                    <input matInput formControlName="cheese" type="text" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Toppings</mat-label>
+                    <input matInput formControlName="toppings" type="text" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Time To Bake</mat-label>
+                    <input matInput formControlName="timeToBake" type="text" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Bake Temperature</mat-label>
+                    <input matInput formControlName="bakeTemp" type="text" required />
+                </mat-form-field>
+        <br />
+        <button mat-raised-button color="primary" [disabled]="!pizzaCreate.valid" type="submit">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+<mat-grid-list cols="4" rowHeight="40vh">
+    <mat-grid-tile *ngFor="let p of pizzas$ | async">
+        <ul>
+            <li>Crust: {{p.crust}}</li>
+            <li>Sauce: {{p.sauce}}</li>
+            <li>Cheese: {{p.cheese}}</li>
+            <li>Toppings: {{p.toppings}}</li>
+            <li>Time To Bake: {{p.timeToBake}}</li>
+            <li>Baking Temperature: {{p.bakeTemp}}</li>
+            <li>User: {{p.user.username}}</li>
+        </ul>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,29 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" ></div>
+    <mat-card-title>{{user?.username}}</mat-card-title>
+    <mat-card-subtitle>{{user?.email}}</mat-card-subtitle>
+    <mat-card-subtitle>member since: {{user?.createdAt | date }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card *ngFor="let pizza of pizzas$ | async" class="pizzas">
+      <mat-card-content>
+        <ul>{{pizza?.crust}}</ul>
+        <ul>{{pizza?.sauce}}</ul>
+        <ul>{{pizza?.cheese}}</ul>
+        <ul>{{pizza?.toppings}}</ul>
+        <ul>{{pizza?.timeToBake}}</ul>
+        <ul>{{pizza?.bakeTemp}}</ul>
+        <ul>
+          <button mat-raised-button (click)="openUpdate(pizza)">update</button>
+          <button mat-raised-button color="warn" (click)="pizzaDelete(pizza.id)">delete</button>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button >Update Account</button>
+    <button mat-raised-button color="warn">Delete Account</button>
+  </mat-card-actions>
+</mat-card>
+<app-pizza-create (created)="getUser()"></app-pizza-create>
